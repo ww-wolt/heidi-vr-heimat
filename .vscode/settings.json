@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "unity_xr_hands copy.sln"
+    "dotnet.defaultSolution": "heidi-vr-heimat.sln"
 }
