@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlurDistortionEffect : MonoBehaviour
 {
     public GameObject XRRigMainCamera;
-    
+
     private void Awake()
     {
         this.transform.SetParent(XRRigMainCamera.transform);
