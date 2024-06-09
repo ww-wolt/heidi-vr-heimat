@@ -22,7 +22,7 @@ public class GazeMasterScript : MonoBehaviour
 
     private const int BUFFER_MAX_SECONDS = 5;
 
-    public Action<float> onGazeTimeUpdate;
+    public static Action<float> onGazeTimeUpdate;
 
     private struct CameraOrientation
     {

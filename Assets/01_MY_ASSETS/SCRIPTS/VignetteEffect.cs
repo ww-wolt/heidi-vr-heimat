@@ -13,11 +13,18 @@ public class VignetteEffect : MonoBehaviour
     void Start()
     {   
         volume = GetComponent<Volume>();
+        
         volume.profile.TryGet(out vignette);
-        vignette.intensity.value = 1.0f;
-        // get vignette component from postprocessingvolume gameobject
-        // postProcessingVolume.GetComponent<PostProcessVolume>().profile.GetSetting<PostProcessing.Vignette>().enabled = false;
+        // vignette.intensity.value = 1.0f;
 
+        GazeMasterScript.onGazeTimeUpdate += UpdateVignette;
+
+    }
+
+    void UpdateVignette(float gazeTime)
+    {
+        // Debug.Log("UpdateVignette: " + gazeTime);
+        vignette.intensity.value = gazeTime * 0.3f;
     }
 
     // Update is called once per frame
@@ -25,10 +32,4 @@ public class VignetteEffect : MonoBehaviour
     {
         
     }
-
-    // listen for event
-    // void OnEnable()
-    // {
-    //     EventManager.OnGhostSpawned += VignetteEffectOn;
-    // }
 }
