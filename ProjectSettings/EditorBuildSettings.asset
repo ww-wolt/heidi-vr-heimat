@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/01_MY_ASSETS/SCENES/Scenes_Andres/SceneGIT2/LightBeamHighGlow.unity
+    guid: eca6b48eea90d42e2938039545c4f0a7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 03955643738e14053a2ee3db554a201f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 61c418b2bd7a149b0822d09e4170c9fe, type: 2}
