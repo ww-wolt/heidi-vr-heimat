@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74b705f2d88a417e8cb4db2be295257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 1507739207780864559, guid: 695a8d14bb4b84fbf8b2b146e9cd2f4c, type: 3}
+  ghostPrefab: {fileID: 7025161307316921964, guid: 0507860b8c5a54b569c871ebe989b3e2, type: 3}
 --- !u!4 &1277815501
 Transform:
   m_ObjectHideFlags: 0
@@ -347,7 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3382ad6f866412d9eb43e6998cfd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessingVolume: {fileID: 0}
 --- !u!1001 &1319151074
 PrefabInstance:
   m_ObjectHideFlags: 0

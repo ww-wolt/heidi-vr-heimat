@@ -23,6 +23,9 @@ public class GhostSpawner : MonoBehaviour
                     // instantiate each ghost a random x, y, z offset in a specified range
                     GameObject ghost = Instantiate(ghostPrefab, new Vector3(x + Random.Range(-1, 1), y + Random.Range(-1, 1), z + Random.Range(-1, 1)), Quaternion.identity);
 
+                    // create random rotation (quaternion) around y axis
+                    ghost.transform.Rotate(0, Random.Range(0, 360), 0);
+
                     // GameObject ghost = Instantiate(ghostPrefab, new Vector3(x, y, z), Quaternion.identity);
                     ghost.transform.parent = transform;
                 }
