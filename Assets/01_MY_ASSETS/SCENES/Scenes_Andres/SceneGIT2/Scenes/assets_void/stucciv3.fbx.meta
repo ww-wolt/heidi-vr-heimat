@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c924a340935b143d7a0362e01bb47f4e
+guid: 83db2f1df1c9049a085381d37413fff1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,9 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sphere|SphereAction
-      takeName: Sphere|SphereAction
-      internalID: -3100628101864396295
+      name: Sphere.001|Action
+      takeName: Sphere.001|Action
+      internalID: 6706502183178408471
       firstFrame: 0
       lastFrame: 99
       wrapMode: 0
@@ -45,6 +45,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sphere.001|Sphere.001Action
+      takeName: Sphere.001|Sphere.001Action
+      internalID: -3036527314473485615
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
