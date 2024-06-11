@@ -27,7 +27,17 @@ public class RevealOnTrigger1 : MonoBehaviour
         {
             enabled = false;
         }
+
+        GazeMasterScript.onGazeTimeUpdate += UpdateConeScale;
     }
+
+
+    void UpdateConeScale(float gazeTime)
+    {
+       // change x and y scale of this transform
+        transform.localScale = new Vector3(gazeTime * 2.0f, gazeTime * 2.0f, 1);
+    }
+
     void Update()
     {
         if (isPlayerInTrigger)

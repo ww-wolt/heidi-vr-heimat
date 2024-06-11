@@ -32,7 +32,7 @@ public class VignetteEffect : MonoBehaviour
 
     void UpdateFocus(float gazeTime)
     {
-        depthOfField.focusDistance.value = gazeTime * 4.0f;
+        // depthOfField.focusDistance.value = gazeTime * 4.0f;
     }
 
     // Update is called once per frame

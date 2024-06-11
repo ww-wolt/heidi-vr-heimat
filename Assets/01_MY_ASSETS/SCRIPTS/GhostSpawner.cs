@@ -26,6 +26,9 @@ public class GhostSpawner : MonoBehaviour
                     // create random rotation (quaternion) around y axis
                     ghost.transform.Rotate(0, Random.Range(0, 360), 0);
 
+                    // create random rotation (quaternion) in every axis
+                    // ghost.transform.Rotate(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+
                     // GameObject ghost = Instantiate(ghostPrefab, new Vector3(x, y, z), Quaternion.identity);
                     ghost.transform.parent = transform;
                 }

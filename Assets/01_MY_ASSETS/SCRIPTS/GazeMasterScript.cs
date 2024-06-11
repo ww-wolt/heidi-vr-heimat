@@ -72,12 +72,56 @@ public class GazeMasterScript : MonoBehaviour
        
         // broadcast lerpedLookingTime as C# event
         onGazeTimeUpdate?.Invoke(lerpedLookingTime);
-        Debug.Log("Tried to broadcast gaze time: " + lerpedLookingTime);
+        // Debug.Log("Broadcast gaze time: " + lerpedLookingTime);
 
         // store the current camera rotation and time in the buffer list
         cameraOrientationBuffer.Add(new CameraOrientation(currentRotation, Time.time));
 
         // remove all CameraOrientation objects from the buffer list that are older than 5 seconds
         cameraOrientationBuffer.RemoveAll(obj => Time.time - obj.time > BUFFER_MAX_SECONDS);
+
+        
+        // Raycast
+        
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);
+
+        // get the hit which angle is closest to the camera forward direction
+        RaycastHit closestHit = new RaycastHit();
+        float minAngle = 180.0f;
+        for (int i = 0; i < hits.Length; i++)
+        {
+            RaycastHit hit = hits[i];
+            float angle = Vector3.Angle(transform.forward, hit.transform.position - transform.position);
+            if (angle < minAngle)
+            {
+                minAngle = angle;
+                closestHit = hit;
+            }
+        }
+
+        // closesHit transform not equaly null
+        if (closestHit.transform != null)
+        {
+            // Debug.Log("Closest hit: " + closestHit.transform.GetInstanceID());
+
+            // log the index of the gameobject inside its parent
+            Debug.Log("Sibling Index: " + closestHit.transform.GetSiblingIndex());
+
+            // if closest hit has tag "Entity"
+            if (closestHit.transform.tag == "Entity"){
+                // get the EntityController script of the closest hit
+                EntityController entityController = closestHit.transform.GetComponent<EntityController>();
+                if (entityController != null)
+                {
+                    // increase focus level of the entity
+                    entityController.focusLevel += Time.deltaTime * 16.0f;
+                }
+                // entityController.focusLevel += Time.deltaTime;
+            }
+        }
+
     }
+
+        
 }
