@@ -6,9 +6,9 @@ public class Cloner : MonoBehaviour
 {
     public GameObject Prefab;
 
-    public int xAmount = 20;
-    public int yAmount = 20;
-    public int zAmount = 20;
+    public int xAmount = 3;
+    public int yAmount = 3;
+    public int zAmount = 3;
     public float spacing = 3.0f;
 
     // spawn a three-dimensional grid of ghosts
