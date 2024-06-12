@@ -26,8 +26,8 @@ public class VignetteEffect : MonoBehaviour
 
     void UpdateVignette(float gazeTime)
     {
-        // Debug.Log("UpdateVignette: " + gazeTime);
-        vignette.intensity.value = gazeTime * 1.0f;
+     
+        // vignette.intensity.value = gazeTime * 1.0f;
     }
 
     void UpdateFocus(float gazeTime)

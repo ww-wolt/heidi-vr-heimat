@@ -41,6 +41,12 @@ public class GazeMasterScript : MonoBehaviour
    
     // create buffer list to store all CameraOrientation objects of the last 5 seconds
     private List<CameraOrientation> cameraOrientationBuffer = new List<CameraOrientation>();
+
+    
+    private Vector3 cameraBasePosition;
+    void Start(){
+        cameraBasePosition = transform.parent.position;
+    }
     
     void Update(){
     
@@ -80,8 +86,10 @@ public class GazeMasterScript : MonoBehaviour
         // remove all CameraOrientation objects from the buffer list that are older than 5 seconds
         cameraOrientationBuffer.RemoveAll(obj => Time.time - obj.time > BUFFER_MAX_SECONDS);
 
-        
+
+        // --------------------------------------------------------------------------------------------
         // Raycast
+        // --------------------------------------------------------------------------------------------
         
         RaycastHit[] hits;
         hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);
@@ -120,7 +128,6 @@ public class GazeMasterScript : MonoBehaviour
                 // entityController.focusLevel += Time.deltaTime;
             }
         }
-
     }
 
         

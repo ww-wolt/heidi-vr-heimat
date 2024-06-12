@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4281118674862028009
+--- !u!114 &-8947184471524727454
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,25 +20,41 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: newVolumM
-  m_Shader: {fileID: -6465566751694194690, guid: 75bf4a0413432439d84dff59b0e7c431, type: 3}
-  m_Parent: {fileID: 2100000, guid: 18cf2d1f5573d438ead82b035fd9a535, type: 2}
+  m_Name: focus-shader-material
+  m_Shader: {fileID: -6465566751694194690, guid: 7455f48d0afcd432c9f85c0674c8960e, type: 3}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _alpha_1: 0.4
-    - _edgeblend: 0.5
-    m_Colors: []
+    - _AlphaStrength: 946.53
+    - _FresnelStrength: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
