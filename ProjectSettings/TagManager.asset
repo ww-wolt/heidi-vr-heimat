@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cone
   - Entity
+  - ConnectionLine
   layers:
   - Default
   - TransparentFX

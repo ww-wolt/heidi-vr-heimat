@@ -6,6 +6,12 @@ using Unity.Collections;
 
 public class GazeValueMapper : MonoBehaviour
 {
+    public enum Input {
+        GazeTime,
+        ConnectionTime,
+    }
+
+    public Input input = Input.GazeTime;
     public float inputRangeMin = 0.0f;
     public float inputRangeMax = 5.0f;
     public AnimationCurve valueMapping;
@@ -19,7 +25,11 @@ public class GazeValueMapper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GazeMasterScript.onGazeTimeUpdate += UpdateTargetValue;
+        if(input == Input.GazeTime){
+            GazeMasterScript.onGazeTimeUpdate += UpdateTargetValue;
+        } else if(input == Input.ConnectionTime){
+            // EntityWalker.onEntityConnected += UpdateTargetValue;
+        }
     }
 
     // Update is called once per frame
