@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Unity.Collections;
 
-public class GazeValueMapper : MonoBehaviour
+public class ValueMapper : MonoBehaviour
 {
     public enum Input {
         GazeTime,
@@ -28,7 +28,7 @@ public class GazeValueMapper : MonoBehaviour
         if(input == Input.GazeTime){
             GazeMasterScript.onGazeTimeUpdate += UpdateTargetValue;
         } else if(input == Input.ConnectionTime){
-            // EntityWalker.onEntityConnected += UpdateTargetValue;
+            // EntityController.onConnectionTimeUpdate += UpdateTargetValue;
         }
     }
 

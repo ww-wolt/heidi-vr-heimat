@@ -6,9 +6,6 @@ public class EntitySpawner : MonoBehaviour
 {
      public GameObject entityPrefab;
 
-     public float spawnMinDistance = 5.0f;
-     public float spawnMaxDistance = 20.0f;
-
      public int entityCount = 200;
 
 

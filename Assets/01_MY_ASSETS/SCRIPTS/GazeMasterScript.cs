@@ -114,12 +114,12 @@ public class GazeMasterScript : MonoBehaviour
             // Debug.Log("Closest hit: " + closestHit.transform.GetInstanceID());
 
             // log the index of the gameobject inside its parent
-            Debug.Log("Sibling Index: " + closestHit.transform.GetSiblingIndex());
+            // Debug.Log("Sibling Index: " + closestHit.transform.GetSiblingIndex());
 
             // if closest hit has tag "Entity"
             if (closestHit.transform.tag == "Entity"){
                 // get the EntityController script of the closest hit
-                EntityController entityController = closestHit.transform.GetComponent<EntityController>();
+                EntityControllerOld entityController = closestHit.transform.GetComponent<EntityControllerOld>();
                 if (entityController != null)
                 {
                     // increase focus level of the entity
