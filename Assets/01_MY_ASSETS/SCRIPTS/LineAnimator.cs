@@ -43,7 +43,7 @@ public class LineAnimator : MonoBehaviour
         int numPoints = Mathf.Max((int) (connectionVec.magnitude / pointsDistance), minPoints);
         lineRenderer.positionCount = numPoints;
 
-        Debug.Log("numPoint " + numPoints);
+        // Debug.Log("numPoint " + numPoints);
 
         var points = new Vector3[numPoints];
 
