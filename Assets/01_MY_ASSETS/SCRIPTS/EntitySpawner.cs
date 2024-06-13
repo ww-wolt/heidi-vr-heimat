@@ -10,7 +10,7 @@ public class EntitySpawner : MonoBehaviour
 
 
     // spawn a threedimensional grid of thousands of entities
-    void SpawnEntities()
+    public void SpawnEntities()
     {
 
         for (int i = 0; i < entityCount; i++)
@@ -31,7 +31,7 @@ public class EntitySpawner : MonoBehaviour
     // call spawn entitys when the game starts
     void Awake()
     {
-        SpawnEntities();
+       
     }
 
     // Start is called before the first frame update
