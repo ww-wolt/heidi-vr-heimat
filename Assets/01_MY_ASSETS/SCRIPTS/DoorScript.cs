@@ -19,7 +19,6 @@ public class DoorScript : MonoBehaviour
 
     }
 
-
     void Update()
     {
         
@@ -39,6 +38,10 @@ public class DoorScript : MonoBehaviour
             ParticleSystem particleSystem = fallingParticles.GetComponent<ParticleSystem>(); 
             particleSystem.Play();
             fallingAnimator.enabled = true;
+
+            // disable myself
+            GetComponent<BoxCollider>().enabled = false;
+            gameObject.SetActive(false);
         }
     }
 }

@@ -9,6 +9,8 @@ public class EntitiesStarter : MonoBehaviour
     public GameObject entitySpawner;
     public AudioSource entityBackgroundAudio;
 
+    public GameObject beginningLights;
+
     public void startEntities()
     {
         // Start entity spawning
@@ -22,5 +24,8 @@ public class EntitiesStarter : MonoBehaviour
         entityBackgroundAudio.volume = 0.0f;
         entityBackgroundAudio.Play();
         StartCoroutine(AudioFader.StartFade(entityBackgroundAudio, 8.0f, 1.0f));
+
+        // Turn off beginning lights
+        beginningLights.SetActive(false);
     }
 }
