@@ -32,11 +32,9 @@ public class ValueMapper : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {   
-        float newValue = Mathf.PingPong(Time.time, 10f);
-        
+
     }
 
     void UpdateTargetValue(float gazeTime)

@@ -10,6 +10,13 @@ public class GazeMasterScript : MonoBehaviour
     // --------------------------------------------------------------------------------------------
 
     public GameObject XRRigMainCamera;
+
+
+    private const float DOT_P_THRESHOLD = 0.995f;
+    private const float DOT_P_THRESHOLD_CONNECTED = 0.9f;
+
+    private float dotPThreshold = DOT_P_THRESHOLD;
+
     
     private void Awake()
     {
@@ -46,6 +53,19 @@ public class GazeMasterScript : MonoBehaviour
     private Vector3 cameraBasePosition;
     void Start(){
         cameraBasePosition = transform.parent.position;
+        EntityController.onConnectionStateUpdate += updateAngleThreshold;
+    }
+
+    void updateAngleThreshold(bool connection)
+    {
+        if (connection)
+        {
+            dotPThreshold = DOT_P_THRESHOLD_CONNECTED;
+        }
+        else
+        {
+            dotPThreshold = DOT_P_THRESHOLD;
+        }
     }
     
     void Update(){
@@ -62,7 +82,7 @@ public class GazeMasterScript : MonoBehaviour
             float dotP = Quaternion.Dot(currentRotation, cameraOrientationBuffer[i].rotation);
             
             // if the dot product is less than 0.99, break the loop
-            if (dotP < 0.995f)
+            if (dotP < dotPThreshold)
             {   
                 // Store starting time of looking interaction
                 lookingStartTimestamp = cameraOrientationBuffer[i].time;
@@ -129,6 +149,4 @@ public class GazeMasterScript : MonoBehaviour
             }
         }
     }
-
-        
 }

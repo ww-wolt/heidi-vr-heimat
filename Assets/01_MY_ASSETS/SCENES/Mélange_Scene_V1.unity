@@ -1094,11 +1094,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete XR Origin Hands Set Up
       objectReference: {fileID: 0}
+    - target: {fileID: 2580910706292915105, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3116191128459764575, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4596136170892101230, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224629633635038180, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1154,9 +1162,13 @@ PrefabInstance:
       propertyPath: m_DrawMeshes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6345864176589835266, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720849789280207954, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7990873189708867121, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_IsActive
@@ -2958,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7fce3f8052a0c374581545e94cfdddf6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 922196095841550137, guid: 7fce3f8052a0c374581545e94cfdddf6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4282,7 +4294,7 @@ Transform:
   m_GameObject: {fileID: 1638461804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4323,7 +4335,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.15
+  m_Intensity: 5.55
   m_Range: 14
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4454,9 +4466,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1862021026}
   - component: {fileID: 1862021028}
-  - component: {fileID: 1862021027}
-  - component: {fileID: 1862021036}
-  - component: {fileID: 1862021035}
   - component: {fileID: 1862021032}
   - component: {fileID: 1862021033}
   - component: {fileID: 1862021034}
@@ -4483,7 +4492,7 @@ Transform:
   - {fileID: 623437716}
   m_Father: {fileID: 1205091975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1862021027
+--- !u!114 &1862021028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4492,10 +4501,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1862021025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
+  m_Script: {fileID: 11500000, guid: e11632b6b098f4e51b18de0c9042c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
+--- !u!114 &1862021032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862021025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f5cf788812f4b4f90bd11ad0fb8f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   inputRangeMin: 0
   inputRangeMax: 10
   valueMapping:
@@ -4522,48 +4542,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  outputRangeMin: 0
+  outputRangeMin: 0.1
   outputRangeMax: 12
-  targetValue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1862021028}
-        m_TargetAssemblyTypeName: TransformWriter, Assembly-CSharp
-        m_MethodName: writeLocalZPosition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  outputReadOnly: 0
---- !u!114 &1862021028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862021025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11632b6b098f4e51b18de0c9042c4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1862021032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862021025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f5cf788812f4b4f90bd11ad0fb8f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1862021033
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4610,86 +4590,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1862021035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862021025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  inputRangeMin: 0
-  inputRangeMax: 5
-  valueMapping:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  outputRangeMin: 0
-  outputRangeMax: 0
-  targetValue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1862021028}
-        m_TargetAssemblyTypeName: TransformWriter, Assembly-CSharp
-        m_MethodName: writeLocalXPosition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  outputReadOnly: 0
---- !u!114 &1862021036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862021025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: 0
-  inputRangeMin: 0
-  inputRangeMax: 5
-  valueMapping:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  outputRangeMin: -0.6
-  outputRangeMax: -0.6
-  targetValue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1862021028}
-        m_TargetAssemblyTypeName: TransformWriter, Assembly-CSharp
-        m_MethodName: writeLocalYPosition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  outputReadOnly: 0
 --- !u!1 &1914332977
 GameObject:
   m_ObjectHideFlags: 0
@@ -9838,7 +9740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityPrefab: {fileID: 2358035638395067557, guid: a50ab26f3d6c74074be4de0d2d3b2231, type: 3}
-  entityCount: 200
+  entityCount: 250
+  spawnOnStart: 1
 --- !u!1 &2084906741
 GameObject:
   m_ObjectHideFlags: 0

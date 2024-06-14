@@ -8,6 +8,8 @@ public class EntitySpawner : MonoBehaviour
 
      public int entityCount = 200;
 
+     public bool spawnOnStart = false;
+
 
     // spawn a threedimensional grid of thousands of entities
     public void SpawnEntities()
@@ -37,7 +39,10 @@ public class EntitySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (spawnOnStart)
+        {
+            SpawnEntities();
+        }
     }
 
     // Update is called once per frame

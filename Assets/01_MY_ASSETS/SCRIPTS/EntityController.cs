@@ -28,13 +28,11 @@ public class EntityController : MonoBehaviour
     private float gazeTime = 0.0f;
 
 
-
-
     private Animator walkingAnimator;
     private SkinnedMeshRenderer myRenderer;
     private Color baseEmissionColor;
 
-    private GameObject endPoint;
+    private AudioSource voiceExcerpt;
 
     void Awake()
     {
@@ -70,10 +68,7 @@ public class EntityController : MonoBehaviour
 
     void SaveConnectionState(bool connection)
     {
-        // Debug.Log("Entity: Received new Connection State: " + connection);
-        // if (!myselfIsConnected){
         someEntityIsConnected = connection;
-        // }
     }
 
     void Update()
@@ -117,15 +112,6 @@ public class EntityController : MonoBehaviour
             }
 
         }
-
-        if(myselfIsConnected && someEntityIsConnected){
-            endPoint.GetComponent<Collider>().enabled = false;
-            endPoint.transform.position = transform.position;
-        }else{
-            if(endPoint) endPoint.GetComponent<Collider>().enabled = true;
-        }
-
-
     }
 
     private void repositionMyself()
@@ -161,7 +147,6 @@ public class EntityController : MonoBehaviour
 
             onConnectionStateUpdate?.Invoke(true);
 
-            endPoint = other.gameObject;
 
             // GetComponentInChildren<Renderer>().material.color = new Color(1.0f, 0.447f, 0.4196f);
 
