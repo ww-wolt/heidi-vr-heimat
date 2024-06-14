@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     public int AddConnection()
     {   
         connections++;
-        if(connections == 1)
-        // if(connections > audioClips.Length)
+        // if(connections == 1)
+        if(connections > audioClips.Length)
         {
             // start ending
             StartCoroutine(AudioFader.StartFade(entitiesBackgroundSound, 4.0f, 0.0f));
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             endSound.Play();
 
             // after 15 seconds invoke a function that reloads the scene
-            Invoke("ReloadScene", 20.0f);
+            Invoke("ReloadScene", 35.0f);
         }
         return connections;
     }

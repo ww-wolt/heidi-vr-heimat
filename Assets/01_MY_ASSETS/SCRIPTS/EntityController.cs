@@ -106,8 +106,8 @@ public class EntityController : MonoBehaviour
             if(endGame){
                 // lerp 0.1 into direction of connection Vector
                 transform.forward = Vector3.Lerp(transform.forward, connectionVector, 0.15f * Time.deltaTime);
-                walkingSpeed = Mathf.Min(walkingSpeed + Time.deltaTime * 0.08f, 0.4f);
-                myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 6.0f);
+                walkingSpeed = Mathf.Min(walkingSpeed + Time.deltaTime * 0.08f, 0.36f);
+                myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 8.0f);
             }else{
                  // lerp 0.1 into direction of connection Vector
                 transform.forward = Vector3.Lerp(transform.forward, connectionVector, 0.15f * Time.deltaTime);
@@ -126,12 +126,15 @@ public class EntityController : MonoBehaviour
                 // Debug.Log("Lerped Color: " + lerpedColor);
 
                 // myRenderer.material.SetColor("_BaseColor", new Color(1.0f, 1.0f, 1.0f, 0.1f)); 
-                myRenderer.material.SetColor("_EmissionColor", new Color(0.1f, 0.1f, 0.1f));
+                myRenderer.material.SetColor("_EmissionColor", new Color(0.05f, 0.05f, 0.05f));
                 // myRenderer.material.SetColor("_EmissionColor", lerpedColor);
             }
             else
             {
                 myRenderer.material.SetColor("_EmissionColor", baseEmissionColor);
+            }
+            if(endGame){
+                StartCoroutine(AudioFader.StartFade(audioSource, UnityEngine.Random.Range(1,4), 0.0f));
             }
 
         }
@@ -185,20 +188,17 @@ public class EntityController : MonoBehaviour
             // only get a new index and audio clip if its the first time
             if(myConnectionNr < 0) myConnectionNr = GameManager.instance.AddConnection();
 
-            // Start audio clip
-            Debug.Log("Start Audio Clip: " + myConnectionNr);
-            audioSource.Stop();
-            audioSource.outputAudioMixerGroup = voicesClearGroup;
-            audioSource.volume = 0.0f;
-            audioSource.spatialBlend = 0.0f;
-            audioSource.clip = GameManager.instance.audioClips[myConnectionNr-1];
-            audioSource.Play();
-            StartCoroutine(AudioFader.StartFade(audioSource, 0.7f, 1.0f));
-
-
-            
-            
-
+            if(!endGame){
+                // Start audio clip
+                Debug.Log("Start Audio Clip: " + myConnectionNr);
+                audioSource.Stop();
+                audioSource.outputAudioMixerGroup = voicesClearGroup;
+                audioSource.volume = 0.0f;
+                audioSource.spatialBlend = 0.0f;
+                audioSource.clip = GameManager.instance.audioClips[myConnectionNr-1];
+                audioSource.Play();
+                StartCoroutine(AudioFader.StartFade(audioSource, 0.7f, 1.0f));
+            }
             // GetComponentInChildren<Renderer>().material.color = new Color(1.0f, 0.447f, 0.4196f);
         }
     }
