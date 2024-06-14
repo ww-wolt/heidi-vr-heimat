@@ -11,6 +11,15 @@ public class VignetteEffect : MonoBehaviour
     private DepthOfField depthOfField;
 
     // Start is called before the first frame update
+
+    void OnEnable(){
+        GazeMasterScript.onGazeTimeUpdate += UpdateVignette;
+        GazeMasterScript.onGazeTimeUpdate += UpdateFocus;
+    }
+    void OnDisable(){
+        GazeMasterScript.onGazeTimeUpdate -= UpdateVignette;
+        GazeMasterScript.onGazeTimeUpdate -= UpdateFocus;
+    }
     void Start()
     {   
         volume = GetComponent<Volume>();
@@ -18,10 +27,6 @@ public class VignetteEffect : MonoBehaviour
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out depthOfField);
         // vignette.intensity.value = 1.0f;
-
-        GazeMasterScript.onGazeTimeUpdate += UpdateVignette;
-        GazeMasterScript.onGazeTimeUpdate += UpdateFocus;
-
     }
 
     void UpdateVignette(float gazeTime)

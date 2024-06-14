@@ -20,14 +20,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        // Debug.Log("Game Manager Awake Instance: " + instance, this);
+        instance = this;
     }
 
     public int AddConnection()
@@ -43,6 +37,7 @@ public class GameManager : MonoBehaviour
 
             // after 15 seconds invoke a function that reloads the scene
             Invoke("ReloadScene", 35.0f);
+            // Invoke("ReloadScene", 1.0f);
         }
         return connections;
     }

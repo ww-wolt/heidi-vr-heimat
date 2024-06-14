@@ -8,9 +8,16 @@ public class CameraMover : MonoBehaviour
     public GameObject camera;
 
     private Vector3 basePosition;
-    void Start(){
-        basePosition = transform.position;
+
+    void OnEnable(){
         GazeMasterScript.onGazeTimeUpdate += MoveCamera;
+    }
+
+    void OnDisable(){
+        GazeMasterScript.onGazeTimeUpdate -= MoveCamera;
+    }
+    void Start(){
+        basePosition = transform.position;    
     }
 
     // Update is called once per frame

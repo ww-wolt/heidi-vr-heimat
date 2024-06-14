@@ -24,6 +24,8 @@ public class GazeMasterScript : MonoBehaviour
     private void Awake()
     {
         this.transform.SetParent(XRRigMainCamera.transform);
+        // Debug.Log("GazeMasterScript Awake Instance: " + instance, this);
+
         instance = this;
     }
 
@@ -55,9 +57,16 @@ public class GazeMasterScript : MonoBehaviour
 
     
     private Vector3 cameraBasePosition;
+
+    void OnEnable(){
+        EntityController.onConnectionStateUpdate += updateAngleThreshold;
+    }
+
+    void OnDisable(){
+        EntityController.onConnectionStateUpdate -= updateAngleThreshold;
+    }
     void Start(){
         cameraBasePosition = transform.parent.position;
-        EntityController.onConnectionStateUpdate += updateAngleThreshold;
     }
 
     void updateAngleThreshold(bool connection)

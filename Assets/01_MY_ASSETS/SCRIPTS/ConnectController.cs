@@ -22,11 +22,19 @@ public class ConnectController : MonoBehaviour
     TransformWriter transformWriter;
 
     // Start is called before the first frame update
-    void Start()
-    {
+
+    void OnEnable(){
         GazeMasterScript.onGazeTimeUpdate += UpdateTargetValue;
         EntityController.onConnectionStateUpdate += SaveConnectionState;
+    }
 
+    void OnDisable(){
+        GazeMasterScript.onGazeTimeUpdate -= UpdateTargetValue;
+        EntityController.onConnectionStateUpdate -= SaveConnectionState;
+    }
+    
+    void Start()
+    {
         transformWriter = GetComponent<TransformWriter>();
         _myCollider = GetComponent<Collider>();
     }

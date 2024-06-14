@@ -46,19 +46,28 @@ public class EntityController : MonoBehaviour
 
     void Awake()
     {
+
         mainCamera = GameObject.Find("Main Camera");
         audioSource = GetComponent<AudioSource>();
         repositionMyself();
+    }
+
+    void OnEnable(){
+        GazeMasterScript.onGazeTimeUpdate += SaveGazeTime;
+        EntityController.onConnectionStateUpdate += SaveConnectionState;
+        GameManager.onEndGame += OnEndGame;
+    }
+
+    void OnDisable(){
+        GazeMasterScript.onGazeTimeUpdate -= SaveGazeTime;
+        EntityController.onConnectionStateUpdate -= SaveConnectionState;
+        GameManager.onEndGame -= OnEndGame;
     }
     void Start()
     {
 
         // get animator component in child
         walkingAnimator = GetComponentInChildren<Animator>();
-
-        GazeMasterScript.onGazeTimeUpdate += SaveGazeTime;
-        EntityController.onConnectionStateUpdate += SaveConnectionState;
-        GameManager.onEndGame += OnEndGame;
 
         myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         baseEmissionColor = myRenderer.material.GetColor("_EmissionColor");

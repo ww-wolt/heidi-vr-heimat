@@ -515,7 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 3
   valueMapping:
@@ -876,7 +875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 2
   valueMapping:
@@ -1566,7 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 5
   valueMapping:
@@ -3974,7 +3971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 3
   valueMapping:
@@ -4031,7 +4027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 3
   valueMapping:
@@ -4088,7 +4083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 3
   valueMapping:
@@ -4145,7 +4139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 5
   valueMapping:
@@ -4321,7 +4314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: 0
   inputRangeMin: 0
   inputRangeMax: 2.2
   valueMapping:
