@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class GazeMasterScript : MonoBehaviour
 {
@@ -13,14 +14,17 @@ public class GazeMasterScript : MonoBehaviour
 
 
     private const float DOT_P_THRESHOLD = 0.995f;
-    private const float DOT_P_THRESHOLD_CONNECTED = 0.9f;
+    private const float DOT_P_THRESHOLD_CONNECTED = 0.89f;
 
     private float dotPThreshold = DOT_P_THRESHOLD;
+
+    public static GazeMasterScript instance = null;
 
     
     private void Awake()
     {
         this.transform.SetParent(XRRigMainCamera.transform);
+        instance = this;
     }
 
     // --------------------------------------------------------------------------------------------
@@ -148,5 +152,9 @@ public class GazeMasterScript : MonoBehaviour
                 // entityController.focusLevel += Time.deltaTime;
             }
         }
+    }
+
+    public void SetGazeTimeToMax(){
+        lookingStartTimestamp = Time.time-15.0f;
     }
 }

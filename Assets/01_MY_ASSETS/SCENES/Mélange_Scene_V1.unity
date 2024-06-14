@@ -122,6 +122,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &199862472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199862473}
+  - component: {fileID: 199862474}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &199862473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199862472}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2083556218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199862474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199862472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515102ca460da432588b421286e09967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 6c8d92833a0c34135ab98de3c0254e25, type: 3}
+  - {fileID: 8300000, guid: 48225e69e182d45afb5cacee4a1f1ae9, type: 3}
+  - {fileID: 8300000, guid: 2f88f5d9c290042caa873c7666f368d2, type: 3}
+  - {fileID: 8300000, guid: 42b1f3ac4fd2b4315a3e8504580d935a, type: 3}
+  - {fileID: 8300000, guid: 92cdc35804acd42d9989fca4e48d4786, type: 3}
+  - {fileID: 8300000, guid: d53142464edda498d9aa87b887009a91, type: 3}
+  - {fileID: 8300000, guid: 80fdac5ce5ffe4b29be797f61f341a62, type: 3}
+  - {fileID: 8300000, guid: 8ac6ae29ac66a403f8489e8f9933abaf, type: 3}
+  - {fileID: 8300000, guid: 4fe3493044a3c4fc4899efb3bb8b8f87, type: 3}
+  - {fileID: 8300000, guid: 7ab64d742eb3145a68a4dadb544135f8, type: 3}
 --- !u!1 &432402897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9693,6 +9748,7 @@ Transform:
   - {fileID: 2083896418}
   - {fileID: 1424500895}
   - {fileID: 892467389}
+  - {fileID: 199862473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083896417

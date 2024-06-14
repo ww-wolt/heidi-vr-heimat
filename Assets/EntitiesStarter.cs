@@ -23,7 +23,7 @@ public class EntitiesStarter : MonoBehaviour
         // Blend in entity background audio
         entityBackgroundAudio.volume = 0.0f;
         entityBackgroundAudio.Play();
-        StartCoroutine(AudioFader.StartFade(entityBackgroundAudio, 8.0f, 1.0f));
+        StartCoroutine(AudioFader.StartFade(entityBackgroundAudio, 6.0f, 1.0f));
 
         // Turn off beginning lights
         beginningLights.SetActive(false);

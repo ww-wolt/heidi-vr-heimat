@@ -32,16 +32,20 @@ public class EntityController : MonoBehaviour
     private SkinnedMeshRenderer myRenderer;
     private Color baseEmissionColor;
 
-    private AudioSource voiceExcerpt;
+    private AudioSource audioSource;
+    private AudioClip voiceExcerpt;
+
+    private int myConnectionNr = -1;
 
     void Awake()
     {
         mainCamera = GameObject.Find("Main Camera");
-
+        audioSource = GetComponent<AudioSource>();
         repositionMyself();
     }
     void Start()
     {
+
         // get animator component in child
         walkingAnimator = GetComponentInChildren<Animator>();
 
@@ -50,18 +54,16 @@ public class EntityController : MonoBehaviour
 
         myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         baseEmissionColor = myRenderer.material.GetColor("_EmissionColor");
-
-
-        // store time.time
-        float connectionTime = Time.time;
     }
 
     void SaveGazeTime(float gazeTime)
     {
-        // Reset connection state if gaze is going away
-        if (this.gazeTime > gazeTime)
+        // Reset global connection state if gaze is going away
+        if (myselfIsConnected && someEntityIsConnected && this.gazeTime > gazeTime )
         {
             onConnectionStateUpdate?.Invoke(false);
+            Debug.Log("Reset Connection State + Fade out audio");
+            StartCoroutine(AudioFader.StartFade(audioSource, 3.0f, 0.0f));
         }
         this.gazeTime = gazeTime;
     }
@@ -130,29 +132,51 @@ public class EntityController : MonoBehaviour
 
 
         transform.Rotate(0, UnityEngine.Random.Range(evasionAngle, 360 - evasionAngle), 0);
+
+        voiceExcerpt = GameManager.instance.GetRandomAudioClip();
+        audioSource.Stop();
+        audioSource.volume = 0.3f;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.clip = voiceExcerpt;
+        audioSource.Play();
     }
 
     // trigger enter
     void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("Entity: Collision with " + other.name);
-
+        // Debug.Log("Trigger Enter: " + other.name);
+        // Myself got connected
         if (other.tag == "ConnectionLine")
         {
             myselfIsConnected = true;
 
             // myRenderer.material.SetColor("_BaseColor", new Color(1.0f, 0.447f, 0.4196f));  
+
+            // Debug.Log("myRenderer material: " + myRenderer.material);
             myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 2.0f);
 
 
             onConnectionStateUpdate?.Invoke(true);
+            // hacky solution to prevent bugs when lasso is going back and catching something
+            GazeMasterScript.instance.SetGazeTimeToMax();
 
+            // only get a new index and audio clip if its the first time
+            if(myConnectionNr < 0) myConnectionNr = GameManager.instance.AddConnection();
+
+            // Start audio clip
+            Debug.Log("Start Audio Clip: " + myConnectionNr);
+            audioSource.Stop();
+            audioSource.volume = 0.0f;
+            audioSource.spatialBlend = 0.0f;
+            audioSource.clip = GameManager.instance.audioClips[myConnectionNr-1];
+            audioSource.Play();
+            StartCoroutine(AudioFader.StartFade(audioSource, 0.7f, 1.0f));
+
+
+            
+            
 
             // GetComponentInChildren<Renderer>().material.color = new Color(1.0f, 0.447f, 0.4196f);
-
-
-
-
         }
     }
 }
