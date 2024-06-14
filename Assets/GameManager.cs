@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public AudioClip[] audioClips;
 
     public static GameManager instance = null;
+
+    public static Action onEndGame;
+
+    public AudioSource entitiesBackgroundSound;
+    public AudioSource endSound;
+
 
     private int connections = 0;
 
@@ -26,18 +33,28 @@ public class GameManager : MonoBehaviour
     public int AddConnection()
     {   
         connections++;
-        if(connections > audioClips.Length)
+        if(connections == 1)
+        // if(connections > audioClips.Length)
         {
             // start ending
-            // reload scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(AudioFader.StartFade(entitiesBackgroundSound, 4.0f, 0.0f));
+            onEndGame.Invoke();
+            endSound.Play();
+
+            // after 15 seconds invoke a function that reloads the scene
+            Invoke("ReloadScene", 20.0f);
         }
         return connections;
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public AudioClip GetRandomAudioClip()
     {
-        return audioClips[Random.Range(0, audioClips.Length)];
+        return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
     }
     void Start()
     {

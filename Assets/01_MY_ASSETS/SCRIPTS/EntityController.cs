@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EntityController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class EntityController : MonoBehaviour
     public float spawnMaxDistance = 40.0f;
 
     public float evasionAngle = 4.0f;
+
+    public AudioMixerGroup voicesClearGroup;
+    public AudioMixerGroup voicesDistortedGroup;
+    
 
 
     private GameObject mainCamera;
@@ -37,6 +42,8 @@ public class EntityController : MonoBehaviour
 
     private int myConnectionNr = -1;
 
+    private bool endGame = false;
+
     void Awake()
     {
         mainCamera = GameObject.Find("Main Camera");
@@ -51,6 +58,7 @@ public class EntityController : MonoBehaviour
 
         GazeMasterScript.onGazeTimeUpdate += SaveGazeTime;
         EntityController.onConnectionStateUpdate += SaveConnectionState;
+        GameManager.onEndGame += OnEndGame;
 
         myRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         baseEmissionColor = myRenderer.material.GetColor("_EmissionColor");
@@ -73,6 +81,11 @@ public class EntityController : MonoBehaviour
         someEntityIsConnected = connection;
     }
 
+    void OnEndGame()
+    {
+        endGame = true;
+    }
+
     void Update()
     {
         walkingAnimator.speed = walkingSpeed;
@@ -86,13 +99,21 @@ public class EntityController : MonoBehaviour
 
         if (myselfIsConnected)
         {
+
             Vector3 connectionVector = mainCamera.transform.position - transform.position;
             connectionVector.y = 0.0f;
 
-
-            // lerp 0.1 into direction of connection Vector
-            transform.forward = Vector3.Lerp(transform.forward, connectionVector, 0.15f * Time.deltaTime);
-            walkingSpeed = Mathf.Max(walkingSpeed - Time.deltaTime * 0.18f, 0.0f);
+            if(endGame){
+                // lerp 0.1 into direction of connection Vector
+                transform.forward = Vector3.Lerp(transform.forward, connectionVector, 0.15f * Time.deltaTime);
+                walkingSpeed = Mathf.Min(walkingSpeed + Time.deltaTime * 0.08f, 0.4f);
+                myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 6.0f);
+            }else{
+                 // lerp 0.1 into direction of connection Vector
+                transform.forward = Vector3.Lerp(transform.forward, connectionVector, 0.15f * Time.deltaTime);
+                walkingSpeed = Mathf.Max(walkingSpeed - Time.deltaTime * 0.18f, 0.0f);
+                myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 2.0f);
+            }
         }
         else
         {
@@ -114,6 +135,7 @@ public class EntityController : MonoBehaviour
             }
 
         }
+        
     }
 
     private void repositionMyself()
@@ -135,6 +157,7 @@ public class EntityController : MonoBehaviour
 
         voiceExcerpt = GameManager.instance.GetRandomAudioClip();
         audioSource.Stop();
+        audioSource.outputAudioMixerGroup = voicesDistortedGroup;
         audioSource.volume = 0.3f;
         audioSource.spatialBlend = 1.0f;
         audioSource.clip = voiceExcerpt;
@@ -153,7 +176,6 @@ public class EntityController : MonoBehaviour
             // myRenderer.material.SetColor("_BaseColor", new Color(1.0f, 0.447f, 0.4196f));  
 
             // Debug.Log("myRenderer material: " + myRenderer.material);
-            myRenderer.material.SetColor("_EmissionColor", new Color(1.0f, 0.447f, 0.4196f) * 2.0f);
 
 
             onConnectionStateUpdate?.Invoke(true);
@@ -166,6 +188,7 @@ public class EntityController : MonoBehaviour
             // Start audio clip
             Debug.Log("Start Audio Clip: " + myConnectionNr);
             audioSource.Stop();
+            audioSource.outputAudioMixerGroup = voicesClearGroup;
             audioSource.volume = 0.0f;
             audioSource.spatialBlend = 0.0f;
             audioSource.clip = GameManager.instance.audioClips[myConnectionNr-1];

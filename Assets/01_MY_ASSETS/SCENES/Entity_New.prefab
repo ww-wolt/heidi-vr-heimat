@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7061543322715047510}
   - component: {fileID: 7239971675169761188}
   - component: {fileID: 3085000490605082132}
+  - component: {fileID: 6334065259440363882}
   m_Layer: 0
   m_Name: Entity_New
   m_TagString: Untagged
@@ -52,6 +53,8 @@ MonoBehaviour:
   spawnMinDistance: 28
   spawnMaxDistance: 35
   evasionAngle: 6
+  voicesClearGroup: {fileID: 1660784097799832855, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
+  voicesDistortedGroup: {fileID: -5030642581007488212, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
 --- !u!65 &7061543322715047510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -196,6 +199,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!164 &6334065259440363882
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358035638395067557}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1400
+  m_RoomHF: -698
+  m_DecayTime: 7.24
+  m_DecayHFRatio: 0.33
+  m_ReflectionsLevel: -1166
+  m_ReverbLevel: 16
+  m_ReverbDelay: 0.03
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
 --- !u!1001 &3301187404992662636
 PrefabInstance:
   m_ObjectHideFlags: 0
