@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 6c8d92833a0c34135ab98de3c0254e25, type: 3}
+  - {fileID: 8300000, guid: 466f79b75b23e4a8fb0e2cf77245f6f1, type: 3}
   - {fileID: 8300000, guid: 48225e69e182d45afb5cacee4a1f1ae9, type: 3}
   - {fileID: 8300000, guid: 2f88f5d9c290042caa873c7666f368d2, type: 3}
   - {fileID: 8300000, guid: 42b1f3ac4fd2b4315a3e8504580d935a, type: 3}
@@ -394,6 +394,37 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &462804467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462804468}
+  m_Layer: 0
+  m_Name: 926ec3ef-30e1-4cf7-b7d0-f171fd562b7c
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &462804468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462804467}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1706817587}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &473798616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,7 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf57121bd74634ef6b61f10e44b75d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 22
+  rotationSpeed: 45
+  lerpFactor: 0.003
 --- !u!1 &841882759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4658,6 +4690,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1706817586
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706817587}
+  m_Layer: 0
+  m_Name: Unity-RecorderSessions
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1706817587
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706817586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 462804468}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862021025
 GameObject:
   m_ObjectHideFlags: 0
@@ -9989,3 +10053,4 @@ SceneRoots:
   - {fileID: 899219967}
   - {fileID: 1936488887}
   - {fileID: 2083556218}
+  - {fileID: 1706817587}

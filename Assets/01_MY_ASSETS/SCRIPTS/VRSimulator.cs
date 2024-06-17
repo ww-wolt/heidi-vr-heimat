@@ -5,13 +5,23 @@ using UnityEngine.InputSystem;
 
 public class VRSimulator : MonoBehaviour
 {
-    public float rotationSpeed = 30f; // Speed of rotation
+    public float rotationSpeed = 30f; 
+    public float lerpFactor = 0.03f; 
 
     private InputAction rotateHorizontalAction;
     private InputAction rotateVerticalAction;
 
     private float horizontalInput;
     private float verticalInput;
+
+    private float targetRotationX;
+    private float targetRotationY;
+
+    private void Start()
+    {
+        targetRotationX = transform.eulerAngles.x;
+        targetRotationY = transform.eulerAngles.y;
+    }
 
     private void OnEnable()
     {
@@ -50,21 +60,25 @@ public class VRSimulator : MonoBehaviour
     {
         // Read the input value as a float
         horizontalInput = context.ReadValue<float>();
+        Debug.Log("horizontal "+ horizontalInput);
     }
 
     private void OnVerticalRotate(InputAction.CallbackContext context)
     {
         // Read the input value as a float
         verticalInput = context.ReadValue<float>();
+        Debug.Log("vertical " + verticalInput);
     }
 
     void Update()
     {
         // Set rotation
+        targetRotationX += -verticalInput * rotationSpeed * Time.deltaTime;
+        targetRotationY += horizontalInput * rotationSpeed * Time.deltaTime;
 
         transform.eulerAngles = new Vector3(
-            transform.eulerAngles.x + -verticalInput * rotationSpeed * Time.deltaTime,
-            transform.eulerAngles.y + horizontalInput * rotationSpeed * Time.deltaTime,
+            Mathf.LerpAngle(transform.eulerAngles.x, targetRotationX, lerpFactor),
+            Mathf.LerpAngle(transform.eulerAngles.y, targetRotationY, lerpFactor),
             transform.eulerAngles.z
         );
     }
