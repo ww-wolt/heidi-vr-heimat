@@ -31,8 +31,13 @@ public class VignetteEffect : MonoBehaviour
 
     void UpdateVignette(float gazeTime)
     {
-     
         vignette.intensity.value = gazeTime * 1.0f;
+    }
+
+    public void WriteVignette(float intensity)
+    {
+        // Lerp the intensity value
+        // vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, intensity, 0.05f);
     }
 
     void UpdateFocus(float gazeTime)

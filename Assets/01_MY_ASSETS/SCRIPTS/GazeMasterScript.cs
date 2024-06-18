@@ -13,8 +13,8 @@ public class GazeMasterScript : MonoBehaviour
     public GameObject XRRigMainCamera;
 
 
-    private const float DOT_P_THRESHOLD = 0.995f;
-    private const float DOT_P_THRESHOLD_CONNECTED = 0.89f;
+    private const float DOT_P_THRESHOLD = 0.992f;
+    private const float DOT_P_THRESHOLD_CONNECTED = 0.86f;
 
     private float dotPThreshold = DOT_P_THRESHOLD;
 
@@ -106,7 +106,7 @@ public class GazeMasterScript : MonoBehaviour
         }
 
         lookingTime = Time.time - lookingStartTimestamp;
-        lerpedLookingTime += (lookingTime - lerpedLookingTime) * 0.04f;
+        lerpedLookingTime += (lookingTime - lerpedLookingTime) * 0.03f;
 
        
         // broadcast lerpedLookingTime as C# event

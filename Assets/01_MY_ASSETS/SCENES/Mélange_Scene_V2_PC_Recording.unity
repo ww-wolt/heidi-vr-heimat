@@ -861,8 +861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf57121bd74634ef6b61f10e44b75d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 45
-  lerpFactor: 0.003
+  rotationSpeed: 30.1
+  lerpFactor: 0.31
 --- !u!1 &841882759
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 841882762}
   - component: {fileID: 841882761}
   - component: {fileID: 841882760}
+  - component: {fileID: 841882765}
   m_Layer: 0
   m_Name: Postprocessing Global Volume
   m_TagString: Untagged
@@ -997,7 +998,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 35f159bad70174694bf5356aafc12833, type: 2}
+  sharedProfile: {fileID: 11400000, guid: d494cf11e6702455ca39cb9cfb42e254, type: 2}
 --- !u!4 &841882764
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,6 +1014,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841882765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841882759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc3fae1d61f2440b9bf62660a9b7fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputRangeMin: 0
+  inputRangeMax: 3
+  valueMapping:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  outputRangeMin: 0.12
+  outputRangeMax: 0.22
+  targetValue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 841882762}
+        m_TargetAssemblyTypeName: VignetteEffect, Assembly-CSharp
+        m_MethodName: WriteVignette
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  outputReadOnly: 0
 --- !u!1001 &873312767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,7 +1219,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892467387}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4853369145930297561, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
   m_audioClip: {fileID: 8300000, guid: a65f79db3bd764a1a92c7de87bac501f, type: 3}
@@ -1424,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: field of view
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7990873191231833673, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -1763,7 +1820,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198675551}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1071534387464889714, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3b481f7906c7746a489a171ae54f2eb8, type: 3}
@@ -2074,7 +2131,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307567490}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2698481759265803172, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2f54c65ff5a54db489305717ea34e272, type: 3}

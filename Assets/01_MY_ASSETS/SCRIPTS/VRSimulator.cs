@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class VRSimulator : MonoBehaviour
 {
     public float rotationSpeed = 30f; 
-    public float lerpFactor = 0.03f; 
+    public float lerpFactor = 2.0f; 
 
     private InputAction rotateHorizontalAction;
     private InputAction rotateVerticalAction;
@@ -77,8 +77,8 @@ public class VRSimulator : MonoBehaviour
         targetRotationY += horizontalInput * rotationSpeed * Time.deltaTime;
 
         transform.eulerAngles = new Vector3(
-            Mathf.LerpAngle(transform.eulerAngles.x, targetRotationX, lerpFactor),
-            Mathf.LerpAngle(transform.eulerAngles.y, targetRotationY, lerpFactor),
+            Mathf.LerpAngle(transform.eulerAngles.x, targetRotationX, lerpFactor * Time.deltaTime),
+            Mathf.LerpAngle(transform.eulerAngles.y, targetRotationY, lerpFactor * Time.deltaTime),
             transform.eulerAngles.z
         );
     }

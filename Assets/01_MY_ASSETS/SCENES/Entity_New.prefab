@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 1
-  spawnMinDistance: 28
+  spawnMinDistance: 29
   spawnMaxDistance: 35
   evasionAngle: 5.5
   voicesClearGroup: {fileID: 1660784097799832855, guid: 8facf2e4a074a4e618f23af5a3939e69, type: 2}
